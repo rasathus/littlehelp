@@ -1,3 +1,4 @@
-littlehelp/*.pyc
-littlehelp/littlehelp.log
+.littlehelp/*.pyc
+.littlehelp/littlehelp.log
+ENV/
 *.DS_Store

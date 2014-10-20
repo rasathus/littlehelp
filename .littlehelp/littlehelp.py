@@ -21,7 +21,6 @@ logging.basicConfig(filename=os.path.join(project_path, '.littlehelp/littlehelp.
 ignored_suffix = ['.DS_Store','.swp',"littlehelp.log"]
 
 def file_event_callback(event):
-    """This is the function being called when an event on a file is detected."""
     # just worry about the modification events.
     if event.mask == 2:
         for suffix in ignored_suffix:
@@ -64,7 +63,6 @@ def main():
 
         while True:
             sleep(0.1)
-#        observer.join() # This will block while watching.
     except:
         logging.exception("Unhandled exception")
 
@@ -74,4 +72,3 @@ if __name__ == "__main__":
 
     with daemon.DaemonContext():
         main()
-    #main()
