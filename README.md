@@ -5,13 +5,13 @@ Littlehelp was conceived to help reduce daily button bashing.  As I often find m
 
 Littlehelp aims to lend a hand by automating this process for you.  To do this littlehelp registers a file system watch on the project directory it is launched from, and when it detects a file modification it executes an 'action'.  An 'action' is simply a function within the launching bash script, called with the path and file name of the file modified.
 
-To get started simply checkout little help, you probably dont want all the history, so try something like this ...
+To get started simply checkout littlehelp, you probably dont want all the history, so try something like this ...
 
 ```
-git clone –depth 1 https://github.com/rasathus/littlehelp.git
+git clone --depth 1 https://github.com/rasathus/littlehelp.git
 ```
 
-Once checked out, take a look at the file 'littlhelp' in your root folder and customise your 'action' function. 
+Once checked out, take a look at the file 'littlehelp' in your root folder and customise your 'action' function. 
 
 ```
 function action {
