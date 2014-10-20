@@ -7,15 +7,19 @@ Littlehelp aims to lend a hand by automating this process for you.  To do this l
 
 To get started simply checkout little help, you probably dont want all the history, so try something like this ...
 
+```
 git clone –depth 1 https://github.com/rasathus/littlehelp.git
+```
 
 Once checked out, take a look at the file 'littlhelp' in your root folder and customise your 'action' function. 
 
+```
 function action {
     file_path=$1
     file_name=$2
 
     # Add your actions here ...
 }
+```
 
 you can now launch littlehelp with the command ./littlehelp, at which point it will daemonise itself and get on with the task at hand.  Littlehelp uses OsX's built in notifications to alert you of any changes to the project.
