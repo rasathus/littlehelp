@@ -1,0 +1,4 @@
+python-daemon>=1.5.5
+pync
+MacFSEvents
+virtualenv

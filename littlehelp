@@ -1,0 +1,28 @@
+#!/bin/bash
+
+function monitor {
+    # This is used to run up the littlehelp daemon.
+    if [ ! -e ENV ]
+    then
+        virtualenv ENV
+        virtualenv --relocatable ENV
+        pip install -r .requirements.txt
+    fi
+    python .littlehelp/littlehelp.py
+}
+
+function action {
+    file_path=$1
+    file_name=$2
+
+    echo "Changed file !! ${file_name}" >> /tmp/action.log
+    # Add your actions here ...
+}
+
+case $1 in
+    action)
+        action $2 $3
+        ;;
+    *)
+        monitor
+esac
