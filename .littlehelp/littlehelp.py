@@ -34,13 +34,13 @@ def file_event_callback(event):
                 subprocess.call('{0} action {1} {2}'.format(littlehelp_script, file_path, file_name), shell=True)
             except:
                 logging.exception("Exceptiong whilst running action '{0} action {1} {2}'".format(littlehelp_script, file_path, file_name))
-            Notifier.notify('change to file: {0}, triggered action'.format(file_name), title='LittleHelp')
+            Notifier.notify('change to file: {0}, triggered action'.format(file_name), title='LittleHelp', subtitle=project_path)
 
 def main():
 
     def sigterm_handler(_signo, _stack_frame):
         try:
-            Notifier.notify('Unregistering fs watch', title='LittleHelp')
+            Notifier.notify('Unregistering fs watch', title='LittleHelp', subtitle=project_path)
         except:
             pass
         logging.info("Sigterm handler called")
@@ -48,12 +48,13 @@ def main():
         observer.stop()
         observer.join()
         try:
-            Notifier.notify('Unregistered fs watch', title='LittleHelp')
+            Notifier.notify('Unregistered fs watch', title='LittleHelp', subtitle=project_path)
         except:
             pass
         sys.exit(0)
 
     try:
+        Notifier.notify('Registering watch', title='LittleHelp', subtitle=project_path)
         observer = Observer()
         stream = Stream(file_event_callback, project_path, file_events=True)
         observer.schedule(stream)
